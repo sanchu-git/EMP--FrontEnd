@@ -1,0 +1,32 @@
+
+<div style="width: 100%; height: 88vh;" class="d-flex justify-content-center align-items-center">
+    <div style="width: 900px;" class="shadow bg-dark row rounded p-5 align-items-center">
+        <div class="col-lg">
+            <img class="img-fluid" src="https://static.vecteezy.com/system/resources/thumbnails/022/675/079/small_2x/data-protection-anti-virus-it-security-using-cyber-security-services-to-protect-private-personal-data-credit-card-pin-user-login-account-password-concept-illustration-free-vector.jpg" alt="landing">
+        </div>
+        <div class="col-lg">
+            <form #loginForm="ngForm" class="border p-5 rounded" (ngSubmit)="login()">
+                <h1 class="fw-bolder mb-5 text-light ms-4">Login Form</h1>
+                <div class="form-floating mb-3">
+                    <input name="email" [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" email required #userEmailInput="ngModel">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <!-- Invalid Email -->
+                  <div *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                  <div class="form-floating mb-3">
+                    <input name="password" [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" pattern="[a-zA-Z0-9]*" minlength="3" required #userPswdInput="ngModel">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <!-- Invalid Password -->
+                  <div *ngIf="userPswdInput.invalid && userPswdInput.touched" class="text-danger fw-bolder mb-3">*Invalid Password</div>
+                  <div class="d-grid">
+                    <button type="submit" [disabled]="loginForm.invalid && loginForm.touched" class="btn btn-warning text-light">Login</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <pre>
+  <p>email : {{email}}</p>
+  <p>password : {{password}}</p>
+</pre> -->
